@@ -121,15 +121,10 @@ li{
   text-decoration: none;
 }
 
-.card1{
+.card1 , .card2{
   width: 20rem;
-  height: 32rem;
+  min-height: 32rem;
   background-color:rgb(217, 3, 104) ;
-}
-.card2{
-  width: 20rem;
-  height: 32rem;
-  background-color:rgb(217, 3, 104);
 }
 .card3{
   width: 20rem;

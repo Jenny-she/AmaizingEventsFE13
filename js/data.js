@@ -1,6 +1,8 @@
-const data= [
+const data = {
+  "currentDate": "2022-01-01",
+  "events": [
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas7.jpg",
+      "image":"https://i.postimg.cc/Fs03hQDt/Collectivities-Party.jpg",
       "name":"Collectivities Party",
       "date":"2021-12-12",
       "description":"Enjoy your favourite dishes, from different countries, in a unique event for the whole family.",
@@ -11,7 +13,7 @@ const data= [
       "price":5
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Feriadecomidas2.jpg",
+      "image":"https://i.postimg.cc/ZmD3Xf57/Korean-style.jpg",
       "name":"Korean style",
       "date":"2022-08-12",
       "description":"Enjoy the best Korean dishes, with international chefs and awesome events.",
@@ -22,7 +24,7 @@ const data= [
       "price":10
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo5.jpg",
+      "image":"https://i.postimg.cc/GmHRkbNV/Jurassic-Park.jpg",
       "name":"Jurassic Park",
       "date":"2021-11-02",
       "description":"Let's go meet the biggest dinosaurs in the paleontology museum.",
@@ -33,7 +35,7 @@ const data= [
       "price":15
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Salidaalmuseo1.jpg",
+      "image":"https://i.postimg.cc/c4C2zXm8/Parisian-Museum.jpg",
       "name":"Parisian Museum",
       "date":"2022-11-02",
       "description":"A unique tour in the city of lights, get to know one of the most iconic places.",
@@ -44,7 +46,7 @@ const data= [
       "price":3500
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Fiestadedisfraces2.jpg",
+      "image":"https://i.postimg.cc/KYD0jMf2/comicon.jpg",
       "name":"Comicon",
       "date":"2021-02-12",
       "description":"For comic lovers, all your favourite characters gathered in one place.",
@@ -55,7 +57,7 @@ const data= [
       "price":54
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Fiestadedisfraces1.jpg",
+      "image":"https://i.postimg.cc/RZ9fH4Pr/halloween.jpg",
       "name":"Halloween Night",
       "date":"2022-02-12",
       "description":"Come with your scariest costume and win incredible prizes.",
@@ -66,7 +68,7 @@ const data= [
       "price":12
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Conciertodemusica1.jpg",
+      "image":"https://i.postimg.cc/PrMJ0ZMc/Metallica-in-concert.jpg",
       "name":"Metallica in concert",
       "date":"2022-01-22",
       "description":"The only concert of the most emblematic band in the world.",
@@ -77,7 +79,7 @@ const data= [
       "price":150
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Conciertodemusica2.jpg",
+      "image":"https://i.postimg.cc/KvsSK8cj/Electronic-Fest.jpg",
       "name":"Electronic Fest",
       "date":"2021-01-22",
       "description":"The best national and international DJs gathered in one place.",
@@ -88,7 +90,7 @@ const data= [
       "price":250
       },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Maraton3.jpg",
+      "image":"https://i.postimg.cc/fyLqZY9K/10-K-for-life.jpg",
       "name":"10K for life",
       "date":"2021-03-01",
       "description":"Come and exercise, improve your health and lifestyle.",
@@ -99,7 +101,7 @@ const data= [
       "price":3
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Maraton1.jpg",
+      "image":"https://i.postimg.cc/zv67r65z/15kny.jpg",
       "name":"15K NY",
       "date":"2022-03-01",
       "description":"We'll be raising funds for hospitals and medical care in this unique event held in The Big Apple.",
@@ -110,7 +112,7 @@ const data= [
       "price":3
       },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Libros7.jpg",
+      "image":"https://i.postimg.cc/Sst763n6/book1.jpg",
       "name":"School's book fair",
       "date":"2022-10-15",
       "description":"Bring your unused school book and take the one you need.",
@@ -121,7 +123,7 @@ const data= [
       "price":1
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Libros3.jpg",
+      "image":"https://i.postimg.cc/05FhxHVK/book4.jpg",
       "name":"Just for your kitchen",
       "date":"2021-11-09",
       "description":"If you're a gastronomy lover come get the cookbook that best suits your taste and your family's.",
@@ -132,9 +134,9 @@ const data= [
       "price":100
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Cine3.jpg",
+      "image":"https://i.postimg.cc/vH52y81C/cinema4.jpg",
       "name":"Batman",
-      "date":"2021-3-11",
+      "date":"2021-03-11",
       "description":"Come see Batman fight crime in Gotham City.",
       "category":"Cinema",
       "place":"Room D1",
@@ -143,7 +145,7 @@ const data= [
       "price":225
     },
     {
-      "image":"https://amazingeventsapi.herokuapp.com/api/img/Cine7.jpg",
+      "image":"https://i.postimg.cc/T3C92KTN/scale.jpg",
       "name":"Avengers",
       "date":"2022-10-15",
       "description":"Marvel's Avengers Premier in 3d, the start of an epic saga with your favourite superheroes.",
@@ -154,36 +156,4 @@ const data= [
       "price":250
     }
   ]
-
-  // for (let i = 0; i < data.length; i++){
-  //   console.log(data[i].name);
-  // }
-  
-// const fragment = document.createDocumentFragment();
-
-
-// events.forEach((data) =>{
-//   const title = document.createElement();
-//   title.textContent = data.name;
-
-
-//   fragment.appendChild(title);
-// });
-// tagToUpDate.appendChild(fragment);
-// console.log("fragment", fragment);
-
-// paintDomwithevents(events)
-
-
-
-// template += `
-// <div class="card1 d-flex flex-column align-items-center justify-content-center flex-wrap">
-// <h3>${name}</h3>
-// <img src="./assets/Cinema.jpg" alt="">
-// <p class="card_p">
-// </p>
-// <div class="btn button-pink ">
-//   <a href="./html/details.html"> More</a>
-// </div>
-// <button class="btn-danger">Buy: $USD 100</button>
-// </div>`
+};
