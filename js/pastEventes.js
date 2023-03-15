@@ -27,13 +27,8 @@
            <h3>${data[i].name}</h3>
            <img src="${data[i].image}">
            <p class="card_p">${data[i].description}</p>
-           <p class="card_p">📆 Date:${data[i].date}</p>
-           <p class="card_p">🕋 Place:${data[i].place}</p>
-           <p class="card_p">🚻 Capacity:${data[i].capacity}</p>
-           <p class="card_p">✔️Estimate:${data[i].estimate}</p>
-           <p class="card_p">✔️Assistance:${data[i].assistance} </p>
-           <div class="btn button-pink"> <a href="/html/details.html"> ${data[i].category}</a></div>
-           <button class="btn-danger">Buy: $USD ${data[i].price}</button>
+           <div class="btn button-pink"> <a href="/html/details.html">More</a></div>
+           <button class="--bs-danger-border-subtle">Buy: $USD ${data[i].price}</button>
          </div>
            `;
           }
@@ -47,3 +42,11 @@
 const pastEvents = filterEvents(data)
 
 paintDOM(pastEvents);
+
+
+/* <p class="card_p">📆 Date:${data[i].date}</p>
+<p class="card_p">🕋 Place:${data[i].place}</p>
+<p class="card_p">🚻 Capacity:${data[i].capacity}</p>
+<p class="card_p">✔️Estimate:${data[i].estimate}</p>
+<p class="card_p">✔️Assistance:${data[i].assistance} </p>
+<p class="card_p">✔️Category:${data[i].category} </p> */
