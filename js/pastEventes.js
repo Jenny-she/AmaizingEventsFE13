@@ -44,9 +44,3 @@ const pastEvents = filterEvents(data)
 paintDOM(pastEvents);
 
 
-/* <p class="card_p">📆 Date:${data[i].date}</p>
-<p class="card_p">🕋 Place:${data[i].place}</p>
-<p class="card_p">🚻 Capacity:${data[i].capacity}</p>
-<p class="card_p">✔️Estimate:${data[i].estimate}</p>
-<p class="card_p">✔️Assistance:${data[i].assistance} </p>
-<p class="card_p">✔️Category:${data[i].category} </p> */

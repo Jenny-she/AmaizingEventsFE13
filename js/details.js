@@ -1,4 +1,4 @@
-
+/*
 let events = data.events
 console.log(events);
 
@@ -44,3 +44,37 @@ containerDetails.innerHTML = `
 
        `
    }
+*/
+let events = data.events;
+console.log(events);
+
+const queryString = window.location.search
+
+const params = new URLSearchParams(queryString)
+
+const id = params.get("_id")
+
+
+const nose = events.find( esto => esto._id == id)
+
+
+const div = document.getElementById("deta")
+div.innerHTML = `
+<div class="container  d-flex flex-column align-items-center justify-content-center">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0 ">
+  <img src="${nose.image}" alt="">
+          <h3>${nose.name}</h3>
+          <p class="card_p">${nose.description}</p>
+          <p class="card_p">📆 Date:${nose.date}</p>
+          <p class="card_p">🕋 Place:${nose.place}</p>
+          <p class="card_p">🚻 Capacity:${nose.capacity}</p>
+          <p class="card_p">✔️Assistance:${nose.assistance} </p>
+          <p class="card_p">✔️Category:${nose.category} </p>
+          <div class="btn button-pink ">
+            <a href="./html/details.html?_id=${nose._id}"></a>
+          </div>
+          <button class="btn-danger">💰Price: $USD ${nose.price}</button>
+        </div>
+`
+

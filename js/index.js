@@ -62,7 +62,7 @@ function pintarTarjetas(arrayDatos) {
         <img src="${elemento.image}" alt="">
         <p class="card_p">${elemento.description} </p>
         <div class="btn button-pink ">
-          <a href="./html/details.html">More</a>
+          <a href="./html/details.html?_id=${elemento._id}">More</a>
         </div>
         <button class="">Buy: $USD ${elemento.price}</button>
       </div>
