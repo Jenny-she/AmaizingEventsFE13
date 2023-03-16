@@ -7,7 +7,7 @@ const containerDetails = document.getElementById("deta")
 const querySearch = window.location.search
 console.log(querySearch);
 
-const param = new URLSearchParams(querySearch).get('_id');
+const param = new URLSearchParams(querySearch).get("_id");
 
 const nose = events.find( esto => esto._id == param)
 
@@ -44,4 +44,3 @@ containerDetails.innerHTML = `
 
        `
    }
-  
