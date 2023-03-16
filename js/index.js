@@ -1,100 +1,94 @@
 // Constantes capturadas y variables
+const contenedor = document.getElementById('root') //si, es 'root'
+const contenedorChecks = document.getElementById('checkContainer') //el container de los ckecksboxes
+const input = document.getElementById('search') //el input de search
 
-
-
-
-
+let events = data.events
 
 
 // Eventos
 
-/*
-input.addEventListener('input', superFilter)
-contenedorChecks.addEventListener('change', superFilter)
+input.addEventListener('input',superFiltro)
+
+contenedorChecks.addEventListener('change',superFiltro)
+
+// Llamadas de funciones
+
+pintarTarjetas(events)
+crearCheckboxes(events)
 
 
-function superFilter(){
-    let arrayFiltrado1 = eventsFiltrados(events, searchInput.value)
-    let arrayFiltrado2 = filtrarPorCheks(arrayFiltrado1)
-    paintDOM(arrayFiltrado2)
+// Funciones
+
+function superFiltro(){
+    let arrayFiltrado1 = filtrarPorTexto(events, input.value)
+    let arrayFiltrado2 = filtrarPorPais(arrayFiltrado1)
+    pintarTarjetas(arrayFiltrado2)
 }
 
-
-*/
-
-///FUNCION DE PINTAR TARJETAS
-
-
-  function paintDOM(data){
-   let body = ``;
-
-   const tagToUpDate = document.getElementById("root");
-   console.log("tagToUpdate", tagToUpDate);
-
-   for (let i = 0; i < data.length; i++){
-    
-    body += `
-    <div class="card1 d-flex flex-column align-items-center justify-content-center flex-wrap">
-    <h3>${data[i].name}</h3>
-    <img src="${data[i].image}" alt="">
-    <p class="card_p">${data[i].description} </p>
-    <div class="btn button-pink ">
-      <a href="./html/details.html">More</a>
-    </div>
-    <button class="">Buy: $USD ${data[i].price}</button>
-  </div>
-`;
-    
-   }
-   tagToUpDate.innerHTML = body;
-   console.log("jajajaj");
- }
-
- paintDOM(data.events)
-
-
-
-
-
-/*
-
- function filtrarPorCheks(arrayDatos){
-  let checkBoxes = document.querySelectorAll(".form-check-input");
-  let arrayChecks = Array.from(checkBoxes)
-  let checksChecked = arrayChecks.filter(check => check.checked);
-  if(checked.length == 0){
-      return arrayDatos
-  }
-  let checkValues = checksChecked.map(check => check.value) //
-  let arrayFiltrado = arrayDatos.filter(elemento =>checkValues.includes(elemento.categoria))
-  return arrayFiltrado
+function crearCheckboxes(arrayInfo){
+    let checks = ''
+    let categoriasRepetidas = arrayInfo.map(elemento => elemento.category)
+    let categorias = new Set(categoriasRepetidas.sort((a,b)=>{
+        if(a>b){
+            return 1
+        }
+        if(a<b){
+            return -1
+        }
+        return 0
+    }))
+    categorias.forEach(elemento =>{
+        checks += `
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="${elemento}" value="${elemento}">
+         <label class="form-check-label" for="${elemento}">${elemento}</label>
+        </div>
+         `
+    })
+    contenedorChecks.innerHTML = checks
 }
 
+function pintarTarjetas(arrayDatos) {
+    if(arrayDatos.length == 0){
+        contenedor.innerHTML = "<h2 class='display-1 fw-bolder'>No hay coincidencias!</h2>"
+        return
+    }
+    let tarjetas = ''
+    arrayDatos.forEach(elemento => {
+        tarjetas += `
+        <div class="card1 d-flex flex-column align-items-center justify-content-center flex-wrap">
+        <h3>${elemento.name}</h3>
+        <img src="${elemento.image}" alt="">
+        <p class="card_p">${elemento.description} </p>
+        <div class="btn button-pink ">
+          <a href="./html/details.html">More</a>
+        </div>
+        <button class="">Buy: $USD ${elemento.price}</button>
+      </div>
+     `;
+    })
+    contenedor.innerHTML = tarjetas
+}
 
+function filtrarPorTexto(arrayDatos, texto){
+    let arrayFiltrado = arrayDatos.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
+    return arrayFiltrado
+}
 
-
-
-
- var searchText = "";
- const searchInput = document.getElementById("search");
-
- searchInput.addEventListener("keyup", (event) => {
-   searchText = event.target.value;
-   eventsFiltrados();
-});
-
-
-function eventsFiltrados() {
- let datos = [];
-  if (checksSelected.length > 0 && searchText !== "") {
-      checksSelected.map(categoria => datos.push(...events.filter(event => event.name.toLowerCase().includes(searchText.trim().toLowerCase()) && event.category == categoria)));
-  } else if (checksSelected.length > 0 && searchText == "") {
-   checksSelected.map(categoria => datos.push(...events.filter(event => event.category == categoria)));
-  } else{
-   datos.push(...events);
-  }
-  paintDOM(datos);
- }
- eventsFiltrados();
-
-*/
+function filtrarPorPais(arrayInfo){
+    let checkboxes = document.querySelectorAll("input[type='checkbox']")
+    console.log(checkboxes);
+    let arrayChecks = Array.from(checkboxes)
+    console.log(arrayChecks);
+    let checksChecked = arrayChecks.filter(check => check.checked)
+    console.log(checksChecked);
+    if(checksChecked.length == 0){
+        return arrayInfo
+    }
+    let checkValues = checksChecked.map(check => check.value)
+    console.log(checkValues);
+    let arrayFiltrado = arrayInfo.filter(elemento => checkValues.includes(elemento.category))
+    console.log(arrayFiltrado);
+    return arrayFiltrado
+}
