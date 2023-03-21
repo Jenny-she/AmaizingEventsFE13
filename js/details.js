@@ -45,8 +45,23 @@ containerDetails.innerHTML = `
        `
    }
 */
-let events = data.events;
-console.log(events);
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+// let dataArray;
+  
+// fetch(urlApi)
+// .then(response => response.json())
+// .then(datos => console.log(datos))
+
+ async function getData(){
+  await fetch(urlApi)
+   .then(respuesta => respuesta.json())
+   .then(json => dataApi = json)
+
+ let data = dataApi.events;
+    
+ 
+// let events = data.events;
+// console.log(events);
 
 const queryString = window.location.search
 
@@ -55,7 +70,7 @@ const params = new URLSearchParams(queryString)
 const id = params.get("_id")
 
 
-const nose = events.find( esto => esto._id == id)
+const nose = data.find( esto => esto._id == id)
 
 
 const div = document.getElementById("deta")
@@ -74,7 +89,8 @@ div.innerHTML = `
           <div class="btn button-pink ">
             <a href="./html/details.html?_id=${nose._id}"></a>
           </div>
-          <button class="btn-danger">💰Price: $USD ${nose.price}</button>
+          <button class="buy">💰Price: $USD ${nose.price}</button>
         </div>
 `
-
+ }
+ getData()

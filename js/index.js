@@ -1,9 +1,35 @@
+// let data = []
+// async function getData(){
+//     await fetch("https://amazing-events.herokuapp.com/api/events")
+//         .then(Response => Response.json())
+//         .then(json=> data = json)
+// let eventos = data
+// return eventos
+// }
+// data =  await getData()
+// console.log(data)
+
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+// let dataArray;
+
+// fetch(urlApi)
+// .then(response => response.json())
+// .then(datos => console.log(datos))
+
+ async function getData(){
+  await fetch(urlApi)
+   .then(respuesta => respuesta.json())
+   .then(json => dataApi = json)
+
+ let data = dataApi.events;
+
+ 
 // Constantes capturadas y variables
 const contenedor = document.getElementById('root') //si, es 'root'
 const contenedorChecks = document.getElementById('checkContainer') //el container de los ckecksboxes
 const input = document.getElementById('search') //el input de search
 
-let events = data.events
+// let events = data.events <- Se bocha xq es del data.js
 
 
 // Eventos
@@ -14,14 +40,14 @@ contenedorChecks.addEventListener('change',superFiltro)
 
 // Llamadas de funciones
 
-pintarTarjetas(events)
-crearCheckboxes(events)
+pintarTarjetas(data)
+crearCheckboxes(data)
 
 
 // Funciones
 
 function superFiltro(){
-    let arrayFiltrado1 = filtrarPorTexto(events, input.value)
+    let arrayFiltrado1 = filtrarPorTexto(data, input.value)
     let arrayFiltrado2 = filtrarPorPais(arrayFiltrado1)
     pintarTarjetas(arrayFiltrado2)
 }
@@ -51,7 +77,7 @@ function crearCheckboxes(arrayInfo){
 
 function pintarTarjetas(arrayDatos) {
     if(arrayDatos.length == 0){
-        contenedor.innerHTML = "<h2 class='display-1 fw-bolder'>No hay coincidencias!</h2>"
+        contenedor.innerHTML = "<h2 class='display-1 fw-bolder'>No hay coincidencias😔</h2>"
         return
     }
     let tarjetas = ''
@@ -60,11 +86,11 @@ function pintarTarjetas(arrayDatos) {
         <div class="card1 d-flex flex-column align-items-center justify-content-center flex-wrap">
         <h3>${elemento.name}</h3>
         <img src="${elemento.image}" alt="">
-        <p class="card_p">${elemento.description} </p>
+        <p class="card_p"><b>${elemento.description} </b></p>
         <div class="btn button-pink ">
-          <a href="./html/details.html?_id=${elemento._id}">More</a>
+          <a href="./html/details.html?_id=${elemento._id}"><b>More</b></a>
         </div>
-        <button class="">Buy: $USD ${elemento.price}</button>
+        <button class="buy">Buy: $USD ${elemento.price}</button>
       </div>
      `;
     })
@@ -92,3 +118,5 @@ function filtrarPorPais(arrayInfo){
     console.log(arrayFiltrado);
     return arrayFiltrado
 }
+}
+getData()

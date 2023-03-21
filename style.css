@@ -52,7 +52,7 @@ a:hover{
 
 
 .card {
-  background-color: rgb(217, 3, 104) ;
+  background-color: rgb(240, 66, 147) ;
 }
 
 .card-footer {
@@ -62,6 +62,7 @@ a:hover{
 .button-pink {
   background-color: rgb(247, 37, 133);
   color: rgb(245, 245, 245);
+  margin-top: 1rem;
   
 }
 
@@ -90,12 +91,18 @@ h2 {
   /* border-top: 2px solid black; */
 }
 
+.buy{
+  background-color: orange;
+  margin-top: 2rem;
+}
+
 table {
   border: none !important;
 }
 
 a{
   text-decoration: none;
+  color: black;  
 }
 th{
   font-size: large;
@@ -124,18 +131,18 @@ li{
 .card1 , .card2{
   width: 20rem;
   min-height: 32rem;
-  background-color:rgb(217, 3, 104) ;
+  background-color:rgb(240, 66, 147) ;
 }
 .card3{
   width: 20rem;
   height: 32rem;
-  background-color:rgb(217, 3, 104) ;
+  background-color:rgb(240, 66, 147) ;
   border-radius: 22px;
 }
 .card4{
   width: 20rem;
   height: 32rem;
-  background-color:rgb(217, 3, 104) ;
+  background-color: rgb(240, 66, 147);
   border-radius: 22px;
 }
 .card1 img{
